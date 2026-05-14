@@ -1,0 +1,16 @@
+{
+  "name": "x402-demo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "x402 (HTTP 402) demo on Base Sepolia / USDC — MetaMask flow + AI agent flow",
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev:server": "pnpm --filter @x402-demo/server dev",
+    "dev:web": "pnpm --filter @x402-demo/web dev",
+    "agent": "pnpm --filter @x402-demo/agent start",
+    "inspect": "pnpm --filter @x402-demo/inspector start"
+  }
+}

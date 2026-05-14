@@ -1,0 +1,5 @@
+[tools]
+node = "22"
+
+[hooks]
+enter = "corepack enable >/dev/null 2>&1 || true"
