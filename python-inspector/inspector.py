@@ -21,7 +21,7 @@ PRIVATE_KEY_HEX = os.environ.get("AGENT_PRIVATE_KEY", "")
 if not PRIVATE_KEY_HEX:
     raise SystemExit("AGENT_PRIVATE_KEY is required (set it in the root .env)")
 PRIV = int(PRIVATE_KEY_HEX, 16)
-WALLET_ADDRESS = os.environ.get("AGENT_ADDRESS") or address(PRIV)
+WALLET_ADDRESS = address(PRIV)
 
 def print_lines():
     return print("\n" + "=" * 80 + "\n")
@@ -66,7 +66,7 @@ pprint(payment_required_json)
 accepted = payment_required_json["accepts"][0]
 chain_id = int(accepted["network"].split(":")[1])
 now = int(time.time())
-valid_after = str(now)
+valid_after = str(now - 600)
 valid_before = str(now + accepted["maxTimeoutSeconds"])
 nonce_hex = "0x" + secrets.token_bytes(32).hex()
 
